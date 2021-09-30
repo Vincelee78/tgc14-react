@@ -7,7 +7,11 @@ export default class Form extends React.Component{
         'enquiries':'Support',
         'country': 'Singapore',
         'contact':[],
-        'message':''
+        'message':'',
+        'message2':'',
+        'message3':'',
+        'message4':'',
+        'message5':'',
 
 
     }
@@ -27,11 +31,11 @@ export default class Form extends React.Component{
                 </div>
                 <div>
                     <label>Enquiries</label>
-                    <input type="radio" name="enquiries" value="support" onChange={this.updateEnquiries} checked={this.state.enquiries === 'support'}/><span>Support</span>
-                    <input type="radio" name="enquiries" value="sales" onChange={this.updateEnquiries} checked={this.state.enquiries === 'sales'}/><span>Sales</span>
-                    <input type="radio" name="enquiries" value="market" onChange={this.updateEnquiries} checked={this.state.enquiries === 'market'}/><span>Market</span>
+                    <input type="radio" name="enquiries" value="Support" onChange={this.updateEnquiries} checked={this.state.enquiries === 'support'}/><span>Support</span>
+                    <input type="radio" name="enquiries" value="Sales" onChange={this.updateEnquiries} checked={this.state.enquiries === 'sales'}/><span>Sales</span>
+                    <input type="radio" name="enquiries" value="Market" onChange={this.updateEnquiries} checked={this.state.enquiries === 'market'}/><span>Market</span>
                 </div>
-                <div>
+                <div >  
                 <label>Country:</label>
                     <select onChange={this.updateCountry} value={this.state.country}>                     
                         <option value="Singapore">Singapore</option>
@@ -39,25 +43,27 @@ export default class Form extends React.Component{
                         <option value="Thailand">Thailand</option>
                     </select>
                 </div>
-                <div>
                 
-                <input type="submit" value="Submit" onClick={this.alertbox}></input>
-                </div>
                 <div>
                     <label>Contact:</label>
-                    <input type="checkbox" name="contact" value="eMail" onChange={this.updateContact} /><span>Email</span>
-                    <input type="checkbox" name="contact" value="PhoneNumber" onChange={this.updateContact} /><span>Phone Number</span>
-                    <input type="checkbox" name="contact" value="slowMail" onChange={this.updateContact} /><span>Slow Mail</span>
+                    <input type="checkbox" name="contact" value="Email" onChange={this.updateContact} /><span>Email</span>
+                    <input type="checkbox" name="contact" value="Phone Number" onChange={this.updateContact} /><span>Phone Number</span>
+                    <input type="checkbox" name="contact" value="Slow Mail" onChange={this.updateContact} /><span>Slow Mail</span>
                     
                 </div>
+
+                <div>
+                <input type="submit" value="Submit" onClick={this.alertbox}></input>
+                </div>
+
                 <div>
                     <h1 style={{
                         border: "1px solid black",
                         padding: "20px",
                         width: "500px",
                         height: "400px",
-                        'margin-left':'100px',
-                        }}>{this.state.message}</h1>
+                        'margin-left':'300px',
+                        }}>{this.state.message}<br />{this.state.message2}<br />{this.state.message3}<br />{this.state.message4}<br />{this.state.message5}</h1>
                 </div>
                 </React.Fragment>
         )
@@ -65,7 +71,11 @@ export default class Form extends React.Component{
 
     alertbox=()=>{
         this.setState({
-            'message': 'First Name: '  + this.state.firstName +  "  " +'Last Name: ' +  this.state.lastName + " " +'Enquiries: '+ this.state.enquiries + " " +'Country: '+ this.state.country + "  " + 'Contact:'+ this.state.contact
+            'message': 'First Name: '  + this.state.firstName,
+            'message2': 'Last Name: ' +  this.state.lastName , 
+            'message3': 'Enquiries: '+ this.state.enquiries,
+            'message4': 'Country: '+ this.state.country,
+            'message5': 'Contact: '+ this.state.contact
         })
         
     }
